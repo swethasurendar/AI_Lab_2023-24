@@ -12,8 +12,8 @@ To  write  a logic program for finding the factorial of given number using SWI-P
 6. STEP 4: Stop the program.
 
 ### Program:
-```
 file name :  factorial.pl
+```
 factorial(0,1).
 factorial(A,B) :-  
            A > 0, 
