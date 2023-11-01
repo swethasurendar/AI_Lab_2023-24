@@ -14,9 +14,8 @@ To  write  a logic program  to solve Towers of Hanoi problem  using SWI-PROLOG.
 8. Run the program  to find answer of  query.
 
 ### Program:
-```
 file name :  towersofhanoi.pl
-
+```
 move(1,X,Y,_) :-  
     write('Move top disk from '), 
     write(X), 
