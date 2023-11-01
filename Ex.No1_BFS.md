@@ -41,9 +41,7 @@ bfs(visited, graph, '5') # function calling
 
 ```
 ### Output:
-```
-Following is the Breadth-First Search
-5 3 7 2 4 8 
-```
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/bbac863e-5039-4e5f-a27d-01b2ac6b7b46)
+
 ### Result:
 Thus the breadth first search order was found sucessfully.
