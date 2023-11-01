@@ -12,12 +12,16 @@ To  write  a logic program for finding the factorial of given number using SWI-P
 6. STEP 4: Stop the program.
 
 ### Program:
-
-
-
+```
+file name :  factorial.pl
+factorial(0,1).
+factorial(A,B) :-  
+           A > 0, 
+           C is A-1,
+           factorial(C,D),
+           B is A*D.
+```
 ### Output:
-
-
-
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/619d4f1f-df6d-4e85-b81e-8a20c80948b8)
 ### Result:
 Thus the factorial of given number was found by logic programming. 
