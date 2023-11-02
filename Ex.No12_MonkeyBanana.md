@@ -1,4 +1,4 @@
-# Ex.No: 11  Planning –  Monkey Banana Problem
+# Ex.No: 12  Planning –  Monkey Banana Problem
 ### DATE: 21.10.2023
 ### REGISTER NUMBER : 212221040154
 ### AIM: 
