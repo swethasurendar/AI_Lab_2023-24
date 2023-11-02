@@ -31,20 +31,20 @@ import seaborn as sns
 #Load the dataset
 data = pd.read_csv("/content/scaled_data.csv")
 
-#Convert the "dt" column to datetime format
+# Convert the "dt" column to datetime format
 data['dt'] = pd.to_datetime(data['dt'])
 
-#Extract the decade from the "dt" column
+# Extract the decade from the "dt" column
 data['decade'] = data['dt'].dt.year // 10 * 10
 
-#Calculate the average temperature per country and decade
+# Calculate the average temperature per country and decade
 avg_temp = data.groupby(['decade', 'Country'])['AverageTemperature'].mean().reset_index()
 
-#Find the country with the lowest average temperature for each decade
+# Find the country with the lowest average temperature for each decade
 min_temp_per_decade = avg_temp.groupby('decade')['AverageTemperature'].idxmin()
 countries_lowest_temp_decade = avg_temp.loc[min_temp_per_decade, ['decade', 'Country', 'AverageTemperature']]
 
-#Visualize the countries with the lowest average temperature for each decade
+# Visualize the countries with the lowest average temperature for each decade
 sns.set_style("whitegrid")
 plt.figure(figsize=(10, 6))
 sns.barplot(data=countries_lowest_temp_decade, x='decade', y='AverageTemperature', hue='Country')
@@ -69,14 +69,14 @@ plt.show()
 #Extract the century from the "dt" column
 data['century'] = data['dt'].dt.year // 100
 
-#Calculate the average temperature per country and century
+# Calculate the average temperature per country and century
 avg_temp = data.groupby(['century', 'Country'])['AverageTemperature'].mean().reset_index()
 
-#Find the country with the lowest average temperature for each century
+# Find the country with the lowest average temperature for each century
 min_temp_per_century = avg_temp.groupby('century')['AverageTemperature'].idxmin()
 countries_lowest_temp_century = avg_temp.loc[min_temp_per_century, ['century', 'Country', 'AverageTemperature']]
 
-#Visualize the countries with the lowest average temperature for each century
+# Visualize the countries with the lowest average temperature for each century
 sns.set_style("whitegrid")
 plt.figure(figsize=(10, 6))
 sns.barplot(data=countries_lowest_temp_century, x='century', y='AverageTemperature', hue='Country')
@@ -86,14 +86,14 @@ plt.ylabel("Average Temperature (Celsius)")
 plt.xticks(rotation=45)
 plt.show()
 
-#Find the country with the highest average temperature for each century
+# Find the country with the highest average temperature for each century
 max_temp_per_century = avg_temp.groupby('century')['AverageTemperature'].idxmax()
 countries_highest_temp = avg_temp.loc[max_temp_per_century, ['century', 'Country', 'AverageTemperature']]
 
-#Print the countries with the highest average temperature for each century
+# Print the countries with the highest average temperature for each century
 print(countries_highest_temp)
 
-#Visualize the countries with the highest average temperature for each century
+# Visualize the countries with the highest average temperature for each century
 sns.set_style("whitegrid")
 plt.figure(figsize=(10, 6))
 sns.barplot(data=countries_highest_temp, x='century', y='AverageTemperature', hue='Country')
@@ -103,10 +103,10 @@ plt.ylabel("Average Temperature (Celsius)")
 plt.xticks(rotation=45)
 plt.show()
 
-#Calculate the average temperature uncertainty over time
+# Calculate the average temperature uncertainty over time
 temp_uncertainty = data.groupby(data['dt'].dt.year)['AverageTemperatureUncertainty'].mean()
 
-#Plot the temperature uncertainty over time
+# Plot the temperature uncertainty over time
 plt.figure(figsize=(10, 6))
 plt.plot(temp_uncertainty.index, temp_uncertainty.values)
 plt.title("Temperature Uncertainty Over Time")
@@ -114,10 +114,10 @@ plt.xlabel("Year")
 plt.ylabel("Temperature Uncertainty")
 plt.show()
 
-#Calculate the temperature variation (standard deviation) over time
+# Calculate the temperature variation (standard deviation) over time
 temp_variation = data.groupby(data['dt'].dt.year)['AverageTemperature'].std()
 
-#Create a scatter plot for temperature variation over time
+# Create a scatter plot for temperature variation over time
 plt.figure(figsize=(10, 6))
 plt.scatter(temp_variation.index, temp_variation.values)
 plt.title("Temperature Variation Over Time")
@@ -128,33 +128,33 @@ plt.show()
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.metrics import mean_squared_error
 
-#Load the encoded dataset
+# Load the encoded dataset
 data_encoded = pd.read_csv("/content/scaled_data.csv")
 
-#Prepare the data for time series forecasting
+# Prepare the data for time series forecasting
 data_encoded['dt'] = pd.to_datetime(data_encoded['dt'])
 data_encoded = data_encoded.set_index('dt')
 data_encoded = data_encoded.resample('Y').mean()  # Resample data to yearly average
 data_encoded = data_encoded['1743':'2013']  # Filter data up to 2013
 
-#Drop rows with missing values
+# Drop rows with missing values
 data_encoded.dropna(inplace=True)
 
-#Train the SARIMA model
+# Train the SARIMA model
 model = SARIMAX(data_encoded['AverageTemperature'], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))
 model_fit = model.fit()
 
-#Make predictions for the historical data
+# Make predictions for the historical data
 historical_predictions = model_fit.predict(start=data_encoded.index[0], end=data_encoded.index[-1])
 
-#Calculate the root mean squared error (RMSE)
+# Calculate the root mean squared error (RMSE)
 rmse = mean_squared_error(data_encoded['AverageTemperature'], historical_predictions, squared=False)
 
-#Make predictions for the next 25 years
+# Make predictions for the next 25 years
 future_dates = pd.date_range(start='2014-01-01', periods=25, freq='Y')
 forecast = model_fit.predict(start=len(data_encoded), end=len(data_encoded) + 24)
 
-#Plot the historical data and forecast
+# Plot the historical data and forecast
 plt.figure(figsize=(12, 6))
 plt.plot(data_encoded.index, data_encoded['AverageTemperature'], label='Historical Data')
 plt.plot(future_dates, forecast, label='Forecast')
@@ -167,6 +167,7 @@ plt.show()
 print(f"RMSE: {rmse}")
 ```
 ### Output:
-
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/b9237171-92eb-4b63-af5e-62cda1ab6e4a)
+RMSE: 0.14366912040368834
 ### Result:
-Thus the system was trained successfully and the prediction was carried out.
+Thus the system was trained successfully, and the prediction was carried out.
