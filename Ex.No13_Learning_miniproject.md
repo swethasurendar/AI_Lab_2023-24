@@ -177,6 +177,44 @@ plt.show()
 print(f"RMSE: {rmse}")
 ```
 ### Output:
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 577462 entries, 0 to 577461
+Data columns (total 4 columns):
+ #   Column                         Non-Null Count   Dtype  
+---  ------                         --------------   -----  
+ 0   dt                             577462 non-null  object 
+ 1   AverageTemperature             544811 non-null  float64
+ 2   AverageTemperatureUncertainty  545550 non-null  float64
+ 3   Country                        577462 non-null  object 
+dtypes: float64(2), object(2)
+memory usage: 17.6+ MB
+None
+```
+```
+dt                               0.000000
+AverageTemperature               5.654225
+AverageTemperatureUncertainty    5.526251
+Country                          0.000000
+dtype: float64
+```
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/bbf04f9d-6ef7-4f71-b84e-329c2a083bdb)
+
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/91039519-c839-4025-957f-12484c7e2268)
+
+```
+     century    Country  AverageTemperature
+64        17  Sri Lanka            0.889449
+135       18   Djibouti            1.033596
+374       19   Djibouti            1.055925
+617       20   Djibouti            1.148273
+```
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/9ec2052f-0a20-467d-9e9d-1fec94ca6bfc)
+
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/16c7bcdd-7656-4b0f-9a0a-4ca6a1a3de76)
+
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/f9c42d27-6941-4ee9-8e3d-c150a8d98b9c)
+
 ![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/b9237171-92eb-4b63-af5e-62cda1ab6e4a)
 ```
 RMSE: 0.14366912040368834
