@@ -178,6 +178,8 @@ print(f"RMSE: {rmse}")
 ```
 ### Output:
 ![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/b9237171-92eb-4b63-af5e-62cda1ab6e4a)
-```RMSE: 0.14366912040368834```
+```
+RMSE: 0.14366912040368834
+```
 ### Result:
 Thus, the system was trained successfully, and the prediction was carried out.
