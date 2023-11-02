@@ -75,7 +75,7 @@ if __name__ == "__main__":
     print("The optimal value is :", minimax(0, 0, True, values, MIN, MAX)) 
 ```
 ### Output:
-The optimal value is : 5
+![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/fb69dc7a-ec5b-4c6e-a88b-669e0e1fbf0c)
 
 ### Result:
 Thus the best score of max player was found using Alpha Beta Pruning.
