@@ -1,5 +1,5 @@
 # Ex.No: 13 Learning – Use Supervised Learning  
-### DATE:                                                                            
+### DATE: 28.10.2023
 ### REGISTER NUMBER : 212221040154
 ### AIM: 
 To write a program to train the classifier for analyzing and predicting global average temperature over the next 25 years using the SARIMAX model, with a focus on data collection, preprocessing, and feature engineering to achieve accurate forecasting.
