@@ -2,9 +2,19 @@
 ### DATE:                                                                            
 ### REGISTER NUMBER : 212221040154
 ### AIM: 
-To write a program to train the classifier for -----------------.
+To write a program to train the classifier for analyzing and predicting global average temperature over the next 25 years using the SARIMAX model, with a focus on data collection, preprocessing, and feature engineering to achieve accurate forecasting.
 ###  Algorithm:
-
+* Collect and clean climate data.
+* Create a time series with relevant features.
+* Standardize data if needed.
+* Split into training and testing sets.
+* Train a SARIMAX model.
+* Incorporate exogenous variables.
+* Evaluate using metrics like MAE, MSE, and RMSE.
+* Detect and handle outliers.
+* Visualize predictions.
+* Forecast the global temperature for 25 years.
+* Present results and insights.
 ### Program:
 ```
 import pandas as pd
@@ -170,4 +180,4 @@ print(f"RMSE: {rmse}")
 ![image](https://github.com/Siddarthan999/AI_Lab_2023-24/assets/91734840/b9237171-92eb-4b63-af5e-62cda1ab6e4a)
 RMSE: 0.14366912040368834
 ### Result:
-Thus the system was trained successfully, and the prediction was carried out.
+Thus, the system was trained successfully, and the prediction was carried out.
